@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-sb-types": "storyblok pull-components --space=311683 && storyblok-generate-ts source=./components.311683.json target=./types/component-types-sb",
+    "proxy": "local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem"
   },
   "dependencies": {
     "@storyblok/react": "^4.0.0",
@@ -21,6 +23,7 @@
     "eslint": "^8",
     "eslint-config-next": "15.0.2",
     "postcss": "^8",
+    "storyblok-generate-ts": "^2.1.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
