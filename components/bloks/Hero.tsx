@@ -25,61 +25,71 @@ export const Hero = ({ blok }: HeroProps) => {
   };
 
   return (
-    <WavyBackground className="w-full">
-      <div className="max-w-7xl mx-auto px-4 py-20">
-        <div
-          className={`flex ${
-            hasVisual
-              ? 'flex-col md:flex-row items-center justify-between gap-12'
-              : 'flex-col items-center text-center'
-          }`}
-        >
-          {/* Text Content */}
+    <div className="relative w-full">
+      {/* Background waves */}
+      <div className="absolute inset-0 z-0">
+        <WavyBackground className="w-full h-full" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        <div className="max-w-7xl mx-auto px-4 py-20">
           <div
-            className={`flex flex-col gap-6 ${
-              hasVisual ? 'md:w-1/2' : 'max-w-3xl'
+            className={`flex ${
+              hasVisual
+                ? 'flex-col md:flex-row items-center justify-between gap-12'
+                : 'flex-col items-center text-center'
             }`}
           >
-            {blok.title && (
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-                {blok.title}
-              </h1>
-            )}
-            {blok.description && (
-              <p className="text-lg md:text-xl text-gray-400">
-                {blok.description}
-              </p>
-            )}
-            {blok.link?.cached_url && (
-              <div className="mt-4">
-                <BorderButton
-                  label="Get Started"
-                  href={blok.link.cached_url}
-                  external={blok.link.target === '_blank'}
-                />
+            {/* Text Content */}
+            <div
+              className={`flex flex-col gap-6 ${
+                hasVisual ? 'md:w-1/2' : 'max-w-3xl'
+              }`}
+            >
+              {blok.title && (
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+                  {blok.title}
+                </h1>
+              )}
+              {blok.description && (
+                <div className="backdrop-blur-sm bg-black/10 dark:bg-white/10 rounded-lg p-6">
+                  <p className="text-lg md:text-xl text-black dark:text-white">
+                    {blok.description}
+                  </p>
+                </div>
+              )}
+              {blok.link?.cached_url && (
+                <div className="mt-4">
+                  <BorderButton
+                    label="Get Started"
+                    href={blok.link.cached_url}
+                    external={blok.link.target === '_blank'}
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Visual Element */}
+            {hasVisual && (
+              <div className="md:w-1/2 flex justify-center items-center">
+                {blok.image?.filename ? (
+                  <Image
+                    src={blok.image.filename}
+                    alt={blok.image.alt || 'Hero image'}
+                    width={500}
+                    height={500}
+                    className="w-full h-auto object-cover rounded-lg"
+                    priority
+                  />
+                ) : blok.vapi_block ? (
+                  renderVapiComponent()
+                ) : null}
               </div>
             )}
           </div>
-
-          {/* Visual Element */}
-          {hasVisual && (
-            <div className="md:w-1/2 flex justify-center items-center">
-              {blok.image?.filename ? (
-                <Image
-                  src={blok.image.filename}
-                  alt={blok.image.alt || 'Hero image'}
-                  width={500}
-                  height={500}
-                  className="w-full h-auto object-cover rounded-lg"
-                  priority
-                />
-              ) : blok.vapi_block ? (
-                renderVapiComponent()
-              ) : null}
-            </div>
-          )}
         </div>
       </div>
-    </WavyBackground>
+    </div>
   );
 };
