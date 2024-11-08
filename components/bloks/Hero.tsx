@@ -3,6 +3,7 @@ import { WavyBackground } from '../ui/wavy-background';
 import Image from 'next/image';
 import { BorderButton } from '../ui/tailwindcss-buttons';
 import { Glob, Orb, Visualizer } from '@/components/vapi';
+import { storyblokEditable } from '@storyblok/react/rsc';
 
 interface HeroProps {
   blok: HeroStoryblok;
@@ -25,7 +26,11 @@ export const Hero = ({ blok }: HeroProps) => {
   };
 
   return (
-    <div className="relative w-full">
+    <div
+      {...storyblokEditable(blok)}
+      key={blok._uid}
+      className="relative w-full"
+    >
       {/* Background waves */}
       <div className="absolute inset-0 z-0">
         <WavyBackground className="w-full h-full" />

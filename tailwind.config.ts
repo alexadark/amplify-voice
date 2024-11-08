@@ -13,6 +13,7 @@ const config: Config = {
         shimmer: 'shimmer 2s linear infinite',
         'pulse-slow':
           'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite, pulse-slower 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        scroll: 'scroll 40s linear infinite',
       },
       keyframes: {
         shimmer: {
@@ -30,6 +31,10 @@ const config: Config = {
         'pulse-slower': {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.25)' },
+        },
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
       colors: {

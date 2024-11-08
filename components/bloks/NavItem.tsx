@@ -6,6 +6,7 @@ export const NavItem = ({ blok }: { blok: NavItemStoryblok }) => {
   return (
     <Link
       {...storyblokEditable(blok)}
+      key={blok._uid}
       href={blok?.link?.cached_url || ''}
       className="text-gray-600 hover:text-gray-900 transition-colors"
     >
