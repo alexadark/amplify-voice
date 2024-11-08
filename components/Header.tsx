@@ -16,9 +16,9 @@ const Header = async () => {
         <Image
           src={logo.filename}
           alt={logo.alt || 'Logo'}
-          width={150}
-          height={40}
-          className="h-10 w-auto"
+          width={200}
+          height={50}
+          className="h-14 w-auto animate-pulse-slow"
           priority
         />
       </Link>

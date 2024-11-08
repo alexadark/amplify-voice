@@ -11,6 +11,8 @@ const config: Config = {
     extend: {
       animation: {
         shimmer: 'shimmer 2s linear infinite',
+        'pulse-slow':
+          'pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite, pulse-slower 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         shimmer: {
@@ -20,6 +22,14 @@ const config: Config = {
           to: {
             backgroundPosition: '-200% 0',
           },
+        },
+        'pulse-slow': {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.15)' },
+        },
+        'pulse-slower': {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.25)' },
         },
       },
       colors: {
