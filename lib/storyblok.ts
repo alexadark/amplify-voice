@@ -1,28 +1,11 @@
-import Page from '@/components/Page';
-import Teaser from '@/components/Teaser';
-import Feature from '@/components/Feature';
-import Grid from '@/components/Grid';
-import {
-  apiPlugin,
-  ISbStoriesParams,
-  StoryblokClient,
-  storyblokInit,
-} from '@storyblok/react/rsc';
+import { Page, NavItem } from '@/components/bloks';
+import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
 export const getStoryblokApi = storyblokInit({
-  accessToken: 'bbEq0xXYteP9TkX8SLMuaAtt',
+  accessToken: 'i9QZukdbYzm5mq2enYmHEgtt',
   use: [apiPlugin],
   components: {
-    teaser: Teaser,
     page: Page,
-    feature: Feature,
-    grid: Grid,
+    'nav-item': NavItem,
   },
 });
-
-export async function fetchData(url: string) {
-  const sbParams: ISbStoriesParams = { version: 'draft' };
-
-  const storyblokApi: StoryblokClient = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/${url}`, sbParams);
-}
