@@ -11,7 +11,7 @@ const Header = async () => {
   const { data } = (await fetchData('config')) || {};
   const { logo, header_nav, cta_label, cta_link } = data?.story?.content;
   return (
-    <header className="flex items-center justify-between px-4 py-5 max-w-7xl mx-auto">
+    <header className="flex items-center justify-between px-4 py-5 max-w-7xl mx-auto relative z-50">
       <Link href="/" className="flex items-center">
         <Image
           src={logo.filename}

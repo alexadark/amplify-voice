@@ -1,4 +1,4 @@
-import { Page, NavItem } from '@/components/bloks';
+import { Page, NavItem, Hero } from '@/components/bloks';
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
 export const getStoryblokApi = storyblokInit({
@@ -7,5 +7,6 @@ export const getStoryblokApi = storyblokInit({
   components: {
     page: Page,
     'nav-item': NavItem,
+    hero: Hero,
   },
 });

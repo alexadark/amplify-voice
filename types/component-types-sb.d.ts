@@ -138,7 +138,7 @@ export interface HeroStoryblok {
   image?: AssetStoryblok;
   vapi_block?: "" | "glob" | "orb" | "visualizer";
   _uid: string;
-  component: "Hero";
+  component: "hero";
   [k: string]: any;
 }
 
