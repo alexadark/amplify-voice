@@ -5,6 +5,7 @@ import { NavItemStoryblok } from '@/types/component-types-sb';
 import { fetchData } from '@/lib/actions';
 import { BorderButton } from '@/components/ui/tailwindcss-buttons';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { MobileMenu } from '@/components/ui/mobile-menu';
 
 const Header = async () => {
   const { data } = (await fetchData('config')) || {};
@@ -22,7 +23,8 @@ const Header = async () => {
         />
       </Link>
 
-      <div className="flex items-center gap-8">
+      {/* Desktop Navigation */}
+      <div className="hidden md:flex items-center gap-8">
         {header_nav && header_nav.length > 0 && (
           <nav className="flex items-center gap-8">
             {header_nav.map((blok: NavItemStoryblok) => (
@@ -38,6 +40,18 @@ const Header = async () => {
           />
         )}
         <ThemeToggle />
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className="flex md:hidden items-center gap-4">
+        <ThemeToggle />
+        <MobileMenu
+          nav={header_nav}
+          cta={{
+            label: cta_label,
+            link: cta_link,
+          }}
+        />
       </div>
     </header>
   );
