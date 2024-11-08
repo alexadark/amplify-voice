@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import StoryblokProvider from '../components/StoryblokProvider';
 import Header from '@/components/Header';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -30,10 +31,16 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans dark:bg-black dark:text-white`}
       >
-        <StoryblokProvider>
-          <Header />
-          <main>{children}</main>
-        </StoryblokProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
+          <StoryblokProvider>
+            <Header />
+            <main>{children}</main>
+          </StoryblokProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

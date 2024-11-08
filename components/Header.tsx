@@ -4,6 +4,7 @@ import { StoryblokServerComponent } from '@storyblok/react/rsc';
 import { NavItemStoryblok } from '@/types/component-types-sb';
 import { fetchData } from '@/lib/actions';
 import { BorderButton } from '@/components/ui/tailwindcss-buttons';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const Header = async () => {
   const { data } = (await fetchData('config')) || {};
@@ -21,20 +22,23 @@ const Header = async () => {
         />
       </Link>
 
-      {header_nav && header_nav.length > 0 && (
-        <nav className="flex items-center gap-8">
-          {header_nav.map((blok: NavItemStoryblok) => (
-            <StoryblokServerComponent key={blok._uid} blok={blok} />
-          ))}
-        </nav>
-      )}
-      {cta_label && (
-        <BorderButton
-          label={cta_label}
-          href={cta_link.cached_url}
-          external={cta_link.target === '_blank'}
-        />
-      )}
+      <div className="flex items-center gap-8">
+        {header_nav && header_nav.length > 0 && (
+          <nav className="flex items-center gap-8">
+            {header_nav.map((blok: NavItemStoryblok) => (
+              <StoryblokServerComponent key={blok._uid} blok={blok} />
+            ))}
+          </nav>
+        )}
+        {cta_label && (
+          <BorderButton
+            label={cta_label}
+            href={cta_link.cached_url}
+            external={cta_link.target === '_blank'}
+          />
+        )}
+        <ThemeToggle />
+      </div>
     </header>
   );
 };
