@@ -38,6 +38,7 @@ export default async function RootLayout({
         >
           <StoryblokProvider>
             <Header />
+
             <main>{children}</main>
           </StoryblokProvider>
         </ThemeProvider>
