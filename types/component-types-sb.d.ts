@@ -136,6 +136,7 @@ export interface HeroStoryblok {
   description?: string;
   link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   image?: AssetStoryblok;
+  vapi_block?: "" | "glob" | "orb" | "visualizer";
   _uid: string;
   component: "Hero";
   [k: string]: any;
