@@ -51,12 +51,12 @@ export const Glob: React.FC = () => {
 
   return (
     <div className="relative w-full h-full">
-      <div className="relative">
-        <AbstractBall {...config} />
+      <AbstractBall {...config} />
+      <div className="absolute inset-0 flex items-center justify-center">
         <Button
           onClick={toggleCall}
           size="lg"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full p-6 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all duration-300"
+          className="rounded-full p-6 bg-white/20 backdrop-blur-sm hover:bg-white/40 transition-all duration-300"
         >
           {isSessionActive ? (
             <PhoneOff className="w-6 h-6" />

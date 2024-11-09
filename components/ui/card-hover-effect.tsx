@@ -22,14 +22,14 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        'grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10',
+        'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10 gap-4',
         className
       )}
     >
       {items.map((item, idx) => (
         <div
           key={item?.link}
-          className="relative group block p-2 h-full w-full"
+          className="relative group block p-2 min-h-[300px]"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -51,13 +51,17 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
-            <div className="mt-8">
-              <BorderButton
-                label={item.label || 'Learn More'}
-                href={item.link}
-              />
+            <div className="flex flex-col min-h-[240px] justify-between">
+              <div>
+                <CardTitle>{item.title}</CardTitle>
+                <CardDescription>{item.description}</CardDescription>
+              </div>
+              <div>
+                <BorderButton
+                  label={item.label || 'Learn More'}
+                  href={item.link}
+                />
+              </div>
             </div>
           </Card>
         </div>
@@ -116,7 +120,7 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        'mt-8 text-slate-300 tracking-wide leading-relaxed',
+        'mt-4 text-slate-300 tracking-wide leading-relaxed',
         className
       )}
     >
