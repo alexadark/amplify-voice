@@ -13,11 +13,27 @@ export const Hero = ({ blok }: HeroProps) => {
   const hasVisual = blok.image || blok.vapi_block;
 
   const renderVapiComponent = () => {
+    // if (typeof window !== 'undefined' && window.innerWidth < 768) {
+    //   return (
+    //     <div className="w-[200px] h-[200px] flex items-center justify-center">
+    //       <Orb />
+    //     </div>
+    //   );
+    // }
+
     switch (blok.vapi_block) {
       case 'glob':
-        return <Glob />;
+        return (
+          <div className="w-[600px] h-[600px] flex items-center justify-center">
+            <Glob />
+          </div>
+        );
       case 'orb':
-        return <Orb />;
+        return (
+          <div className=" flex items-center justify-center">
+            <Orb />
+          </div>
+        );
       case 'visualizer':
         return <Visualizer />;
       default:
