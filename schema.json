@@ -1,0 +1,42 @@
+{
+  "carousel": {
+    "name": "carousel",
+    "display_name": "Carousel",
+    "schema": {
+      "items": {
+        "type": "bloks",
+        "restrict_components": true,
+        "component_whitelist": ["carousel_item"]
+      }
+    },
+    "preview_field": null,
+    "is_root": false,
+    "is_nestable": true
+  },
+  "carousel_item": {
+    "name": "carousel_item",
+    "display_name": "Carousel Item",
+    "schema": {
+      "image": {
+        "type": "asset",
+        "filetypes": ["images"],
+        "required": true
+      },
+      "title": {
+        "type": "text",
+        "required": true
+      },
+      "category": {
+        "type": "text",
+        "required": true
+      },
+      "content": {
+        "type": "richtext",
+        "required": true
+      }
+    },
+    "preview_field": "title",
+    "is_root": false,
+    "is_nestable": true
+  }
+}

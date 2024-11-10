@@ -145,7 +145,7 @@ export interface HeroStoryblok {
 export interface HowWeWorkCardStoryblok {
   title?: string;
   icon?: AssetStoryblok;
-  description?: string;
+  description?: RichtextStoryblok;
   _uid: string;
   component: "how-we-work-card";
   [k: string]: any;
@@ -218,6 +218,7 @@ export interface PageStoryblok {
     | ServiceItemStoryblok
     | ServicesSectionStoryblok
     | SocialItemStoryblok
+    | SubmitFormStoryblok
     | TagStoryblok
     | VapiBlockStoryblok
   )[];
@@ -303,6 +304,15 @@ export interface SocialItemStoryblok {
   url?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   _uid: string;
   component: "social-item";
+  [k: string]: any;
+}
+
+export interface SubmitFormStoryblok {
+  title?: string;
+  description?: string;
+  image?: AssetStoryblok;
+  _uid: string;
+  component: "submit-form";
   [k: string]: any;
 }
 
