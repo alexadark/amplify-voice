@@ -24,7 +24,7 @@ export default function HowWeWorkCard({
           </div>
         )}
 
-        <h3 className="font-bold text-2xl text-white mb-4 relative z-50">
+        <h3 className="font-bold text-2xl  mb-4 relative z-50 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-blue-500">
           {blok.title}
         </h3>
 
