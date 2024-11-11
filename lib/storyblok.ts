@@ -8,6 +8,8 @@ import {
   ServiceItem,
   Carousel,
   CarouselItem,
+  HowWeWorkSection,
+  HowWeWorkCard,
 } from '@/components/bloks';
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
@@ -21,6 +23,8 @@ export const components = {
   'service-item': ServiceItem,
   carousel: Carousel,
   'carousel-item': CarouselItem,
+  'how-we-work-section': HowWeWorkSection,
+  'how-we-work-card': HowWeWorkCard,
 };
 
 export const getStoryblokApi = storyblokInit({
