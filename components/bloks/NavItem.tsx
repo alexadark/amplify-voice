@@ -1,4 +1,4 @@
-import { storyblokEditable } from '@storyblok/react';
+import { storyblokEditable } from '@storyblok/react/rsc';
 import Link from 'next/link';
 import type { NavItemStoryblok } from '@/types/component-types-sb';
 

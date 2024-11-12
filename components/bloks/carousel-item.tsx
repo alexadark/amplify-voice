@@ -1,4 +1,4 @@
-import { storyblokEditable, renderRichText } from '@storyblok/react';
+import { storyblokEditable, renderRichText } from '@storyblok/react/rsc';
 import { Card } from '@/components/ui/apple-cards-carousel';
 import { CarouselItemStoryblok } from '@/types/component-types-sb';
 

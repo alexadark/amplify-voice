@@ -1,4 +1,4 @@
-import { storyblokEditable, renderRichText } from '@storyblok/react';
+import { storyblokEditable, renderRichText } from '@storyblok/react/rsc';
 import { HowWeWorkCardStoryblok } from '@/types/component-types-sb';
 import { Meteors } from '../ui/meteors';
 import Image from 'next/image';
