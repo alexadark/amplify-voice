@@ -28,8 +28,7 @@ export const components = {
 };
 
 export const getStoryblokApi = storyblokInit({
-  // accessToken: 'i9QZukdbYzm5mq2enYmHEgtt',
-  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_API_TOKEN,
+  accessToken: 'i9QZukdbYzm5mq2enYmHEgtt',
   use: [apiPlugin],
   components,
 });
