@@ -3,7 +3,7 @@ import { headers } from 'next/headers';
 import { StoryblokStory } from '@storyblok/react/rsc';
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
-  const headersList = await headers();
+  const headersList = headers();
   const version = headersList.get('x-storyblok-version') as
     | 'draft'
     | 'published';
