@@ -9,5 +9,6 @@ import Carousel from './carousel';
 import CarouselItem from './carousel-item';
 import HowWeWorkSection from './how-we-work-section';
 import HowWeWorkCard from './how-we-work-card';
+import { default as SubmitForm } from './SubmitForm';
 
-export { Carousel, CarouselItem, HowWeWorkSection, HowWeWorkCard };
+export { Carousel, CarouselItem, HowWeWorkSection, HowWeWorkCard, SubmitForm };

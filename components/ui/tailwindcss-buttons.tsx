@@ -3,14 +3,18 @@ import Link from 'next/link';
 
 interface BorderButtonProps {
   label: string;
-  href: string;
+  href?: string;
   external?: boolean;
+  onClick?: (e: React.MouseEvent) => void;
+  type?: 'button' | 'submit';
 }
 
 export const BorderButton = ({
   label,
   href,
   external = false,
+  onClick,
+  type = 'button',
 }: BorderButtonProps) => {
   const ButtonContent = () => (
     <div className="p-[3px] relative">
@@ -21,6 +25,14 @@ export const BorderButton = ({
     </div>
   );
 
+  if (onClick) {
+    return (
+      <button type={type} onClick={onClick}>
+        <ButtonContent />
+      </button>
+    );
+  }
+
   if (external) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer">
@@ -29,9 +41,13 @@ export const BorderButton = ({
     );
   }
 
-  return (
+  return href ? (
     <Link href={href}>
       <ButtonContent />
     </Link>
+  ) : (
+    <button type={type}>
+      <ButtonContent />
+    </button>
   );
 };

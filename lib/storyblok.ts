@@ -10,6 +10,7 @@ import {
   CarouselItem,
   HowWeWorkSection,
   HowWeWorkCard,
+  SubmitForm,
 } from '@/components/bloks';
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
@@ -25,6 +26,7 @@ export const components = {
   'carousel-item': CarouselItem,
   'how-we-work-section': HowWeWorkSection,
   'how-we-work-card': HowWeWorkCard,
+  'submit-form': SubmitForm,
 };
 
 export const getStoryblokApi = storyblokInit({

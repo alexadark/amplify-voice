@@ -1,4 +1,4 @@
-import { StoryblokStory } from 'storyblok-generate-ts';
+import {StoryblokStory} from 'storyblok-generate-ts'
 
 export interface RichtextStoryblok {
   type: string;
@@ -13,7 +13,7 @@ export interface AllPostsStoryblok {
   headline?: string;
   intro?: RichtextStoryblok;
   _uid: string;
-  component: 'all-posts';
+  component: "all-posts";
   [k: string]: any;
 }
 
@@ -21,7 +21,7 @@ export interface AllProjectsStoryblok {
   headline?: string;
   intro?: RichtextStoryblok;
   _uid: string;
-  component: 'all-projects';
+  component: "all-projects";
   [k: string]: any;
 }
 
@@ -49,7 +49,7 @@ export interface AuthorStoryblok {
   twitter?: string;
   seo?: SeoStoryblok[];
   _uid: string;
-  component: 'author';
+  component: "author";
   [k: string]: any;
 }
 
@@ -58,7 +58,7 @@ export interface CarouselStoryblok {
   description?: string;
   items?: CarouselItemStoryblok[];
   _uid: string;
-  component: 'carousel';
+  component: "carousel";
   [k: string]: any;
 }
 
@@ -67,7 +67,7 @@ export interface CarouselItemStoryblok {
   description?: RichtextStoryblok;
   image?: AssetStoryblok;
   _uid: string;
-  component: 'carousel-item';
+  component: "carousel-item";
   [k: string]: any;
 }
 
@@ -77,7 +77,7 @@ export interface CategoryStoryblok {
   image?: AssetStoryblok;
   description?: string;
   _uid: string;
-  component: 'category';
+  component: "category";
   [k: string]: any;
 }
 
@@ -86,22 +86,22 @@ export type MultilinkStoryblok =
       id?: string;
       cached_url?: string;
       anchor?: string;
-      linktype?: 'story';
-      target?: '_self' | '_blank';
+      linktype?: "story";
+      target?: "_self" | "_blank";
       [k: string]: any;
     }
   | {
       url?: string;
       cached_url?: string;
       anchor?: string;
-      linktype?: 'asset' | 'url';
-      target?: '_self' | '_blank';
+      linktype?: "asset" | "url";
+      target?: "_self" | "_blank";
       [k: string]: any;
     }
   | {
       email?: string;
-      linktype?: 'email';
-      target?: '_self' | '_blank';
+      linktype?: "email";
+      target?: "_self" | "_blank";
       [k: string]: any;
     };
 
@@ -118,33 +118,27 @@ export interface ConfigStoryblok {
   logo?: AssetStoryblok;
   title?: string;
   cta_label?: string;
-  cta_link?: Exclude<
-    MultilinkStoryblok,
-    { linktype?: 'email' } | { linktype?: 'asset' }
-  >;
+  cta_link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   _uid: string;
-  component: 'config';
+  component: "config";
   [k: string]: any;
 }
 
 export interface ContentStoryblok {
   text?: RichtextStoryblok;
   _uid: string;
-  component: 'content';
+  component: "content";
   [k: string]: any;
 }
 
 export interface HeroStoryblok {
   title?: string;
   description?: string;
-  link?: Exclude<
-    MultilinkStoryblok,
-    { linktype?: 'email' } | { linktype?: 'asset' }
-  >;
+  link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   image?: AssetStoryblok;
-  vapi_block?: '' | 'glob' | 'orb' | 'visualizer';
+  vapi_block?: "" | "glob" | "orb" | "visualizer";
   _uid: string;
-  component: 'hero';
+  component: "hero";
   [k: string]: any;
 }
 
@@ -153,7 +147,7 @@ export interface HowWeWorkCardStoryblok {
   icon?: AssetStoryblok;
   description?: RichtextStoryblok;
   _uid: string;
-  component: 'how-we-work-card';
+  component: "how-we-work-card";
   [k: string]: any;
 }
 
@@ -162,7 +156,7 @@ export interface HowWeWorkSectionStoryblok {
   description?: string;
   items?: HowWeWorkCardStoryblok[];
   _uid: string;
-  component: 'how-we-work-section';
+  component: "how-we-work-section";
   [k: string]: any;
 }
 
@@ -170,7 +164,7 @@ export interface LastPostsStoryblok {
   headline?: string;
   number_of_posts?: string;
   _uid: string;
-  component: 'last-posts';
+  component: "last-posts";
   [k: string]: any;
 }
 
@@ -179,27 +173,24 @@ export interface LogoCarouselStoryblok {
   description?: string;
   logos?: LogoItemStoryblok[];
   _uid: string;
-  component: 'logo-carousel';
+  component: "logo-carousel";
   [k: string]: any;
 }
 
 export interface LogoItemStoryblok {
   logo?: AssetStoryblok;
   _uid: string;
-  component: 'logo-item';
+  component: "logo-item";
   [k: string]: any;
 }
 
 export interface NavItemStoryblok {
-  link?: Exclude<
-    MultilinkStoryblok,
-    { linktype?: 'email' } | { linktype?: 'asset' }
-  >;
+  link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   label?: string;
   is_submenu?: boolean;
   sub_menu?: NavItemStoryblok[];
   _uid: string;
-  component: 'nav-item';
+  component: "nav-item";
   [k: string]: any;
 }
 
@@ -233,7 +224,7 @@ export interface PageStoryblok {
   )[];
   seo?: SeoStoryblok[];
   _uid: string;
-  component: 'page';
+  component: "page";
   uuid?: string;
   [k: string]: any;
 }
@@ -248,7 +239,7 @@ export interface PostStoryblok {
   tags?: (StoryblokStory<TagStoryblok> | string)[];
   seo?: SeoStoryblok[];
   _uid: string;
-  component: 'post';
+  component: "post";
   [k: string]: any;
 }
 
@@ -269,7 +260,7 @@ export interface ProjectStoryblok {
   content?: RichtextStoryblok;
   cover?: AssetStoryblok;
   _uid: string;
-  component: 'project';
+  component: "project";
   [k: string]: any;
 }
 
@@ -284,7 +275,7 @@ export interface SeoStoryblok {
   twitter_image?: AssetStoryblok;
   no_follow?: boolean;
   _uid: string;
-  component: 'seo';
+  component: "seo";
   [k: string]: any;
 }
 
@@ -292,12 +283,9 @@ export interface ServiceItemStoryblok {
   title?: string;
   description?: string;
   label?: string;
-  link?: Exclude<
-    MultilinkStoryblok,
-    { linktype?: 'email' } | { linktype?: 'asset' }
-  >;
+  link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   _uid: string;
-  component: 'service-item';
+  component: "service-item";
   [k: string]: any;
 }
 
@@ -306,19 +294,16 @@ export interface ServicesSectionStoryblok {
   description?: string;
   services?: ServiceItemStoryblok[];
   _uid: string;
-  component: 'services-section';
+  component: "services-section";
   [k: string]: any;
 }
 
 export interface SocialItemStoryblok {
   name?: string;
   icon?: AssetStoryblok;
-  url?: Exclude<
-    MultilinkStoryblok,
-    { linktype?: 'email' } | { linktype?: 'asset' }
-  >;
+  url?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   _uid: string;
-  component: 'social-item';
+  component: "social-item";
   [k: string]: any;
 }
 
@@ -327,7 +312,7 @@ export interface SubmitFormStoryblok {
   description?: string;
   image?: AssetStoryblok;
   _uid: string;
-  component: 'submit-form';
+  component: "submit-form";
   [k: string]: any;
 }
 
@@ -336,15 +321,15 @@ export interface TagStoryblok {
   headline?: string;
   description?: RichtextStoryblok;
   _uid: string;
-  component: 'tag';
+  component: "tag";
   [k: string]: any;
 }
 
 export interface VapiBlockStoryblok {
   title?: string;
   description?: string;
-  block?: '' | 'glob' | 'orb' | 'simple';
+  block?: "" | "glob" | "orb" | "simple";
   _uid: string;
-  component: 'vapi-block';
+  component: "vapi-block";
   [k: string]: any;
 }
