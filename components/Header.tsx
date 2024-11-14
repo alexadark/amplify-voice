@@ -9,30 +9,35 @@ import { MobileMenu } from '@/components/ui/mobile-menu';
 
 const Header = async () => {
   const { data } = (await fetchData('config')) || {};
-  const { logo, header_nav, cta_label, cta_link } = data?.story?.content;
+  const { logo, header_nav, cta_label, cta_link, site_name } =
+    data?.story?.content || {};
+
+  if (!data) return null;
+
   return (
     <header className="flex items-center justify-between px-4 py-5 max-w-7xl mx-auto relative z-50">
       <Link href="/" className="flex items-center">
-        <Image
-          src={logo.filename}
-          alt={logo.alt || 'Logo'}
-          width={200}
-          height={50}
-          className="h-14 w-auto animate-pulse-slow"
-          priority
-        />
+        {logo && (
+          <Image
+            src={logo.filename}
+            alt={site_name || 'Logo'}
+            width={200}
+            height={50}
+            className="h-14 w-auto"
+            priority
+          />
+        )}
       </Link>
 
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center gap-8">
-        {header_nav && header_nav.length > 0 && (
-          <nav className="flex items-center gap-8">
-            {header_nav.map((blok: NavItemStoryblok) => (
-              <StoryblokServerComponent key={blok._uid} blok={blok} />
-            ))}
-          </nav>
-        )}
-        {cta_label && (
+        <nav className="flex items-center gap-8">
+          {header_nav?.map((blok: NavItemStoryblok) => (
+            <StoryblokServerComponent key={blok._uid} blok={blok} />
+          ))}
+        </nav>
+
+        {cta_label && cta_link?.cached_url && (
           <BorderButton
             label={cta_label}
             href={cta_link.cached_url}
@@ -45,13 +50,15 @@ const Header = async () => {
       {/* Mobile Navigation */}
       <div className="flex md:hidden items-center gap-4">
         <ThemeToggle />
-        <MobileMenu
-          nav={header_nav}
-          cta={{
-            label: cta_label,
-            link: cta_link,
-          }}
-        />
+        {header_nav && cta_label && cta_link && (
+          <MobileMenu
+            nav={header_nav}
+            cta={{
+              label: cta_label,
+              link: cta_link,
+            }}
+          />
+        )}
       </div>
     </header>
   );

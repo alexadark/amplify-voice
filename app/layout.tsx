@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import StoryblokProvider from '../components/StoryblokProvider';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/theme-provider';
 
 const geistSans = localFont({
@@ -39,6 +40,7 @@ export default async function RootLayout({
           <StoryblokProvider>
             <Header />
             <main>{children}</main>
+            <Footer />
           </StoryblokProvider>
         </ThemeProvider>
       </body>
